@@ -55,7 +55,7 @@ async def status_message_f(
 ):  # weird code but 'This is the way' @gautamajay52
     aria_i_p = await aria_start()
     # Show All Downloads
-    to_edit = await message.reply("<code>Processing . . . 🔄</code>")
+    to_edit = await message.reply("<code>Processing...</code>")
     chat_id = int(message.chat.id)
     mess_id = int(to_edit.message_id)
     async with _lock:
@@ -91,14 +91,14 @@ async def status_message_f(
                 msg += f"\n<b>🔖Filename:</b> <code>{downloading_dir_name}</code>"
                 msg += f"\n<b>📡 Status</b>: <i>Downloading...📥</i>"
                 msg += f"\n<code>{prog}</code>"
-                msg += f"\n<b>🗃 Downloaded</b>: <code>{file.progress_string()}</code> <b>of</b> <code>{file.total_length_string()}</code>"
+                msg += f"\n<b>𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱</b>: <code>{file.progress_string()}</code> <b>of</b> <code>{file.total_length_string()}</code>"
                 msg += f"\n<b>📊Speed</b>: <code>{file.download_speed_string()}</code>,"
                 msg += f"<b>🔍ETA:</b> <code>{file.eta_string()}</code>"  
                 #umen = f'<a href="tg://user?id={file.message.from_user.id}">{file.message.from_user.first_name}</a>'
                 #msg += f"\n<b>👤User:</b> {umen} (<code>{file.message.from_user.id}</code>)"
                 #msg += f"\n<b>⚠️Warn:</b> <code>/warn {file.message.from_user.id}</code>"
                 msg += f"\n{msgg}"
-                msg += f"\n<b>⛔ Cancel:</b> <code>/cancel {file.gid}</code>"
+                msg += f"\n<b>⛔ 𝗖𝗮𝗻𝗰𝗲𝗹:</b> <code>/cancel {file.gid}</code>"
                 msg += "\n"
 
         hr, mi, se = up_time(time.time() - BOT_START_TIME)
@@ -164,10 +164,10 @@ async def cancel_message_f(client, message):
                 downloads = aria_i_p.get_downloads(gid_list)
             aria_i_p.remove(downloads=downloads, force=True, files=True, clean=True)
             await i_m_s_e_g.edit_text(
-                f"⛔<b> Download Cancelled </b>⛔ :\n<code>{name} ({size})</code> By <a href='tg://user?id={message.from_user.id}'>{message.from_user.first_name}</a>"
+                f"⛔<b> 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗖𝗮𝗻𝗰𝗲𝗹𝗹𝗲𝗱 </b>⛔ :\n<code>{name} ({size})</code> By <a href='tg://user?id={message.from_user.id}'>{message.from_user.first_name}</a>"
             )
         except Exception as e:
-            await i_m_s_e_g.edit_text("<i>⚠️ FAILED ⚠️</i>\n\n" + str(e) + "\n#Error")
+            await i_m_s_e_g.edit_text("<i>⚠️ 𝗙𝗔𝗜𝗟𝗘𝗗 ⚠️</i>\n\n" + str(e) + "\n#Error")
     else:
         await message.delete()
 
