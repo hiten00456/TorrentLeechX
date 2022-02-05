@@ -105,7 +105,7 @@ async def incoming_message_f(client, message):
             # LOGGER.info(aria_i_p)
         
         u_men = message.from_user.mention
-        await i_m_sefg.edit_text(f"<b>👤 User : {u_men} \n Your Request Has Been Added To The Status \n Use /status To Check Your Progress</b>")
+        await i_m_sefg.edit_text(f"<b>𝘼𝙙𝙙𝙚𝙙 𝙏𝙤 𝙙𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙨 𝙨𝙚𝙣𝙙 /status 𝙛𝙤𝙧 𝙈𝙤𝙧𝙚</b>")
         # try to download the "link"
         is_zip = False
         is_cloud = False
